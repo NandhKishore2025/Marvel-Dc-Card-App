@@ -7,7 +7,7 @@ function Home() {
     const navigate = useNavigate();
     const [search , setSearch] = useState('')
     const [sortby ,setSortBy] =  useState('name')
-    const [isDescending, setIsDescending] = useState(true);
+    const [isAscending, setIsAscending] = useState(true);
 
     useEffect(() => {
         const fetchdata = async () => {
@@ -29,7 +29,7 @@ function Home() {
         } else {
             result = b.powerstats[sortby] - a.powerstats[sortby] 
         }
-        return isDescending ? -result : result;
+        return isAscending ? result : -result;
     })
 
     return (
@@ -41,8 +41,8 @@ function Home() {
                 onChange = {e  => setSearch(e.target.value)}
                 
                />
-               <button className='btn2' onClick={() => setIsDescending(!isDescending)}>
-    {isDescending ? "Sort: Low to High" : "Sort: High to Low "}
+               <button className='btn2' onClick={() => setIsAscending(!isAscending)}>
+    {isAscending ? "Sort: Low to High" : "Sort: High to Low "}
 </button>
 
                <select  className='select' value = {sortby} onChange = {e =>setSortBy(e.target.value)}>
