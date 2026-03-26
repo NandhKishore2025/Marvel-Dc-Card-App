@@ -42,7 +42,7 @@ function Home() {
                 
                />
                <button className='btn2' onClick={() => setIsAscending(!isAscending)}>
-    {isAscending ? "Sort: Low to High" : "Sort: High to Low "}
+    {isAscending ? "Sort: High to Low" : "Sort: Low to High "}
 </button>
 
                <select  className='select' value = {sortby} onChange = {e =>setSortBy(e.target.value)}>
